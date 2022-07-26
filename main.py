@@ -23,9 +23,9 @@ def worker(filename: str, filecontent: str, adderstring: str, removerstring: str
     os.system('git add .')
     os.system(f'git commit -m "{adderstring}" ')
     os.system(
-        f"git commit --amend --no-edit --date \"{dates.get(dateName)} {dates.get(month)} {dates.get(date)} {time} {dates.get(year)} +0600\"")
+        f"git commit --amend --no-edit --date \"{dates.get('dateName')} {dates.get('month')} {dates.get('date')} {time} {dates.get('year')} +0600\"")
     print(
-        f"git commit --amend --no-edit --date \"{dates.get(dateName)} {dates.get(month)} {dates.get(date)} {time} {dates.get(year)} +0600\"")
+        f"git commit --amend --no-edit --date \"{dates.get('dateName')} {dates.get('month')} {dates.get('date')} {time} {dates.get('year')} +0600\"")
 
     # Removing it from system.
     os.remove(filename)
@@ -34,7 +34,7 @@ def worker(filename: str, filecontent: str, adderstring: str, removerstring: str
     os.system('git add .')
     os.system(f'git commit -m "{removerstring}" ')
     os.system(
-        f"git commit --amend --no-edit --date \"{dates.get(dateName)} {dates.get(month)} {dates.get(date)} {time} {dates.get(year)} +0600\"")
+        f"git commit --amend --no-edit --date \"{dates.get('dateName')} {dates.get('month')} {dates.get('date')} {time} {dates.get('year')} +0600\"")
 
 
 def NameMaker():
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     # commits  = int(input('How many commits you need per day (1-99999): '))
     # year 	 = int(input('In which year you need (2022): '))
 
-    dates = {
+    datelist = {
         'date': date,
         'dateName': dateName,
         'month': month,
@@ -89,7 +89,7 @@ if __name__ == '__main__':
                 filecontent=f'# {names.get("description")}',
                 adderstring=f'Added {names.get("name")} file.',
                 removerstring=f'Removed {names.get("name")} file.',
-                dates=dates
+                dates=datelist
             )
             print(f'Done {i}')
 
