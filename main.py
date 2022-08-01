@@ -16,14 +16,17 @@ def worker(filename: str, filecontent: str, adderstring: str, removerstring: str
     with open(filename, 'a') as docs:
         docs.write(filecontent)
 
+        # Setting a default time
+    time = dt.now().strftime('%H:%M:%S')
+
     # Adding it in git and commiting it.
     os.system('git add .')
     os.system(f'git commit -m "{adderstring}" ')
+    os.system(
+        f"git commit --amend --no-edit --date \"Tue Aug 2 {time} 2022 +0600\"")
 
     # Removing it from system.
     os.remove(filename)
-
-    time = dt.now().strftime('%H:%M:%S')
 
     # Adding remove descriptions and commiting it.
     os.system('git add .')
