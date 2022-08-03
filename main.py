@@ -60,7 +60,7 @@ if __name__ == '__main__':
     # }
 
     try:
-        for i in range(20):
+        for i in range(1000):
             # define jobs here...
             # worker(
             # 	filename='README.md',
