@@ -1,27 +1,41 @@
+'''
+Github Contribution Stealer script. With this you can make much contribution in no time.
+Use it and enjoy.
+'''
+
 import os
-import glob
 
+def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
+	# Opening files, writting contents and save it.
+	with open(filename, 'a') as docs:
+		docs.write(filecontent)
 
-def main():
-	file = 'README.md'
-	with open(file, 'a') as docs:
-		docs.write('# This is the documentation of this project.')
-
+	# Adding it in git and commiting it.
 	os.system('git add .')
-	os.system('git commit -m "Added Docs." ')
+	os.system(f'git commit -m "{adderstring}" ')
 
-	os.remove(file)
+	# Removing it from system.
+	os.remove(filename)
 
+	# Adding remove descriptions and commiting it.
 	os.system('git add .')
-	os.system('git commit -m "Removed Docs." ')
+	os.system(f'git commit -m "{removerstring}" ')
 
 
 
 if __name__ == '__main__':
 	try:
 		for i in range(1000):
-			main()
+			#define jobs here...
+			worker(
+				filename='README.md',
+				filecontent='# This is the documentation of this project.',
+				adderstring='Added Docs',
+				removerstring='Removed Docs'
+				)
 			print(f'Done {i}')
+
 	except KeyboardInterrupt as e:
+		# Pushing it to github.
 		os.system('git push -u origin master')
 
