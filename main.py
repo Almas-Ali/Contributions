@@ -33,6 +33,12 @@ if __name__ == '__main__':
 				adderstring='Added Docs',
 				removerstring='Removed Docs'
 				)
+			worker(
+				filename='contribution.md',
+				filecontent='# This is the contribution file of this project.',
+				adderstring='Added Contribution file.',
+				removerstring='Removed Contribution file.'
+				)
 			print(f'Done {i}')
 
 	except KeyboardInterrupt as e:
