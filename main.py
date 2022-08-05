@@ -43,5 +43,6 @@ if __name__ == '__main__':
 
 	except KeyboardInterrupt as e:
 		# Pushing it to github.
-		os.system('git push -u origin master')
+		print('[!] Stopting running process...')
+	os.system('git push -u origin master')
 
