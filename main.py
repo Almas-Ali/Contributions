@@ -29,6 +29,7 @@ def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 
 
 if __name__ == '__main__':
+	commits = int(input('How many commits you need ? : '))
 	try:
 		for i in range(1000):
 			#define jobs here...
