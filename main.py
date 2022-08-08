@@ -21,7 +21,7 @@ def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 	os.system('git add .')
 	os.system(f'git commit -m "{removerstring}" ')
 
-
+('%a %b %e %H:%M:%S %Y %z')
 
 if __name__ == '__main__':
 	try:
