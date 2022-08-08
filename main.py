@@ -11,7 +11,7 @@ import string
 # strftime('%a %b %e %H:%M:%S %Y %z')
 
 
-def worker(filename: str, filecontent: str, adderstring: str, removerstring: str, dates: dict):
+def worker(filename: str, filecontent: str, adderstring: str, removerstring: str):
     # Opening files, writting contents and save it.
     with open(filename, 'a') as docs:
         docs.write(filecontent)
@@ -28,8 +28,7 @@ def worker(filename: str, filecontent: str, adderstring: str, removerstring: str
     # Adding remove descriptions and commiting it.
     os.system('git add .')
     os.system(f'git commit -m "{removerstring}" ')
-    os.system(f"git commit --amend --no-edit --date \'{dates.get('dateName')} {dates.get('month')} {dates.get('date')} {time} {dates.get('year')} +0600\' ")
-    print(f"{dates.get('dateName')} {dates.get('month')} {dates.get('date')} {time} {dates.get('year')} +0600")
+    os.system(f"git commit --amend --no-edit --date \"Thu Aug 4 {time} 2022 +0600\" ")
 
 
 def NameMaker():
@@ -44,24 +43,24 @@ def NameMaker():
 
 
 if __name__ == '__main__':
-    commits = int(input('How many commits you need (1-99999): '))
-    date = int(input('In which date you need (1-31): '))
-    dateName = input('In which date you need (Sat-Fri): ')
-    month = input('In which month you need (Jan-Dec): ')
-    year = int(input('In which year you need (2022): '))
+    # commits = int(input('How many commits you need (1-99999): '))
+    # date = int(input('In which date you need (1-31): '))
+    # dateName = input('In which date you need (Sat-Fri): ')
+    # month = input('In which month you need (Jan-Dec): ')
+    # year = int(input('In which year you need (2022): '))
 
     # commits  = int(input('How many commits you need per day (1-99999): '))
     # year 	 = int(input('In which year you need (2022): '))
 
-    dates = {
-        'date': date,
-        'dateName': dateName,
-        'month': month,
-        'year': year
-    }
+    # dates = {
+    #     'date': date,
+    #     'dateName': dateName,
+    #     'month': month,
+    #     'year': year
+    # }
 
     try:
-        for i in range(commits):
+        for i in range(20):
             # define jobs here...
             # worker(
             # 	filename='README.md',
@@ -82,8 +81,7 @@ if __name__ == '__main__':
                 filename=names.get('name'),
                 filecontent=f'# {names.get("description")}',
                 adderstring=f'Added {names.get("name")} file.',
-                removerstring=f'Removed {names.get("name")} file.',
-                dates=dates
+                removerstring=f'Removed {names.get("name")} file.'
             )
             print(f'Done {i}')
 
