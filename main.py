@@ -29,11 +29,12 @@ def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 
 
 if __name__ == '__main__':
+	
 	commits = int(input('How many commits you need (1-99999): '))
 	date 	= int(input('In which date you need (1-31): '))
 	month	= int(input('In which month you need (Jan-Dec): '))
 	year 	= int(input('In which year you need (2022): '))
-	
+
 	try:
 		for i in range(1000):
 			#define jobs here...
