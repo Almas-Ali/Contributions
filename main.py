@@ -4,7 +4,7 @@ Use it and enjoy.
 '''
 
 import os
-
+from datetime import datetime as dt
 
 # strftime('%a %b %e %H:%M:%S %Y %z')
 
@@ -23,6 +23,7 @@ def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 	# Adding remove descriptions and commiting it.
 	os.system('git add .')
 	os.system(f'git commit -m "{removerstring}" ')
+	os.system(f'git commit -m "Tue Aug 9 00:18:{sec} 2022 +0600" ')
 
 
 if __name__ == '__main__':
