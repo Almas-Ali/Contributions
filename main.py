@@ -20,7 +20,7 @@ def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 	# Removing it from system.
 	os.remove(filename)
 
-	sec = dt.now().strftime()
+	sec = dt.now().strftime('%H:%M:%S')
 
 	# Adding remove descriptions and commiting it.
 	os.system('git add .')
