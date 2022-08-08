@@ -5,8 +5,8 @@ Use it and enjoy.
 
 import os
 
-# strftime('%a %b %e %H:%M:%S %Y %z')
 
+# strftime('%a %b %e %H:%M:%S %Y %z')
 
 def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 	# Opening files, writting contents and save it.
