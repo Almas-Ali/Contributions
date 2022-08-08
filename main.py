@@ -40,7 +40,7 @@ if __name__ == '__main__':
 	year 	 = int(input('In which year you need (2022): '))
 
 	commits  = int(input('How many commits you need per day (1-99999): '))
-	year 	 = int(input('In which year you need (2022): '))	
+	year 	 = int(input('In which year you need (2022): '))
 
 	dates = {
 		'date'	   : date,
