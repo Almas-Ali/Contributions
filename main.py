@@ -55,8 +55,7 @@ if __name__ == '__main__':
         'date': date,
         'dateName': dateName,
         'month': month,
-        'year': year,
-        'time': dt.now().strftime('%H:%M:%S')
+        'year': year
     }
 
     try:
@@ -76,6 +75,7 @@ if __name__ == '__main__':
             # 	removerstring='Removed Contribution file.',
             # 	dates=dates
             # 	)
+            dates['time'] = dt.now().strftime('%H:%M:%S')
             names = NameMaker()
             worker(
                 filename=names.get('name'),
