@@ -23,10 +23,13 @@ def worker(filename: str, filecontent: str, adderstring: str, removerstring: str
     # Removing it from system.
     os.remove(filename)
 
+    time = dt.now().strftime('%H:%M:%S')
+
     # Adding remove descriptions and commiting it.
     os.system('git add .')
     os.system(f'git commit -m "{removerstring}" ')
-    os.system('bash cdc.sh @~ \"12 days ago\"')
+    os.system(
+        f"git commit --amend --no-edit --date Tue Aug 2 {time} 2022 +0600")
 
 
 def NameMaker():
@@ -51,10 +54,10 @@ if __name__ == '__main__':
     # year 	 = int(input('In which year you need (2022): '))
 
     # dates = {
-    #     'date': date,
-    #     'dateName': dateName,
-    #     'month': month,
-    #     'year': year
+    #	 'date': date,
+    #	 'dateName': dateName,
+    #	 'month': month,
+    #	 'year': year
     # }
 
     try:
