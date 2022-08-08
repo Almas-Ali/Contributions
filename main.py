@@ -29,7 +29,7 @@ def worker(filename: str, filecontent: str, adderstring: str, removerstring: str
     os.system('git add .')
     os.system(f'git commit -m "{removerstring}" ')
     os.system(
-        f"git commit --amend --no-edit --date Tue Aug 2 {time} 2022 +0600")
+        f"git commit --amend --no-edit --date \"Tue Aug 2 {time} 2022 +0600\"")
 
 
 def NameMaker():
