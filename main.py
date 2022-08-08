@@ -5,6 +5,7 @@ Use it and enjoy.
 
 import os
 from datetime import datetime as dt
+import random
 
 # strftime('%a %b %e %H:%M:%S %Y %z')
 
