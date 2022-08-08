@@ -8,7 +8,7 @@ from datetime import datetime as dt
 
 # strftime('%a %b %e %H:%M:%S %Y %z')
 
-def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
+def worker(filename:str, filecontent:str, adderstring:str, removerstring:str, dates:dict):
 	# Opening files, writting contents and save it.
 	with open(filename, 'a') as docs:
 		docs.write(filecontent)
@@ -25,30 +25,40 @@ def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 	# Adding remove descriptions and commiting it.
 	os.system('git add .')
 	os.system(f'git commit -m "{removerstring}" ')
-	os.system(f'git commit --amend --no-edit --date "Tue Aug 7 {time} 2022 +0600" ')
+	os.system(f'git commit --amend --no-edit --date "{dates.get(dateName)} {dates.get(month)} {dates.get(date)} {time} {dates.get(year)} +0600" ')
 
 
 if __name__ == '__main__':
 	
-	commits = int(input('How many commits you need (1-99999): '))
-	date 	= int(input('In which date you need (1-31): '))
-	month	= int(input('In which month you need (Jan-Dec): '))
-	year 	= int(input('In which year you need (2022): '))
+	commits  = int(input('How many commits you need (1-99999): '))
+	date 	 = int(input('In which date you need (1-31): '))
+	dateName = input('In which date you need (Sat-Fri): ')
+	month	 = input('In which month you need (Jan-Dec): ')
+	year 	 = int(input('In which year you need (2022): '))
+
+	dates = {
+		'date'	   : date,
+		'dateName' : dateName,
+		'month'	   : month,
+		'year'	   : year
+	}
 
 	try:
-		for i in range(1000):
+		for i in range(commits):
 			#define jobs here...
 			worker(
 				filename='README.md',
 				filecontent='# This is the documentation of this project.',
 				adderstring='Added Docs',
-				removerstring='Removed Docs'
+				removerstring='Removed Docs',
+				dates=dates
 				)
 			worker(
 				filename='contribution.md',
 				filecontent='# This is the contribution file of this project.',
 				adderstring='Added Contribution file.',
-				removerstring='Removed Contribution file.'
+				removerstring='Removed Contribution file.',
+				dates=dates
 				)
 			print(f'Done {i}')
 
