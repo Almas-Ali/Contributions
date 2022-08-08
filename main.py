@@ -5,6 +5,7 @@ Use it and enjoy.
 
 import os
 from datetime import datetime
+# strftime('%a %b %e %H:%M:%S %Y %z')
 
 
 def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
