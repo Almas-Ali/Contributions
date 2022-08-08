@@ -20,12 +20,12 @@ def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 	# Removing it from system.
 	os.remove(filename)
 
-	sec = dt.now().strftime('%H:%M:%S')
+	time = dt.now().strftime('%H:%M:%S')
 
 	# Adding remove descriptions and commiting it.
 	os.system('git add .')
 	os.system(f'git commit -m "{removerstring}" ')
-	os.system(f'git commit -m "Tue Aug 9 00:18:{sec} 2022 +0600" ')
+	os.system(f'git commit -m "Tue Aug 9 {time} 2022 +0600" ')
 
 
 if __name__ == '__main__':
