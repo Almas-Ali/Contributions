@@ -4,6 +4,7 @@ Use it and enjoy.
 '''
 
 import os
+from datetime import datetime
 
 def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 	# Opening files, writting contents and save it.
