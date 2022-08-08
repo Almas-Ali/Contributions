@@ -29,7 +29,7 @@ def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 
 
 if __name__ == '__main__':
-	commits = int(input('How many commits you need (1-9999): '))
+	commits = int(input('How many commits you need (1-99999): '))
 	date 	= int(input('In which date you need (1-31):'))
 	try:
 		for i in range(1000):
