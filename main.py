@@ -37,6 +37,8 @@ if __name__ == '__main__':
 	month	 = input('In which month you need (Jan-Dec): ')
 	year 	 = int(input('In which year you need (2022): '))
 
+	commits  = int(input('How many commits you need per day (1-99999): '))
+
 	dates = {
 		'date'	   : date,
 		'dateName' : dateName,
