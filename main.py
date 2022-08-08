@@ -24,6 +24,8 @@ def worker(filename: str, filecontent: str, adderstring: str, removerstring: str
     os.system(f'git commit -m "{adderstring}" ')
     os.system(
         f"git commit --amend --no-edit --date \"{dates.get(dateName)} {dates.get(month)} {dates.get(date)} {time} {dates.get(year)} +0600\"")
+    print(
+        f"git commit --amend --no-edit --date \"{dates.get(dateName)} {dates.get(month)} {dates.get(date)} {time} {dates.get(year)} +0600\"")
 
     # Removing it from system.
     os.remove(filename)
