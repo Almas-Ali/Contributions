@@ -6,6 +6,7 @@ Use it and enjoy.
 import os
 from datetime import datetime
 
+
 def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 	# Opening files, writting contents and save it.
 	with open(filename, 'a') as docs:
@@ -22,7 +23,6 @@ def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 	os.system('git add .')
 	os.system(f'git commit -m "{removerstring}" ')
 
-('%a %b %e %H:%M:%S %Y %z')
 
 if __name__ == '__main__':
 	try:
