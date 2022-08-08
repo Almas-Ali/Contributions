@@ -20,6 +20,8 @@ def worker(filename:str, filecontent:str, adderstring:str, removerstring:str):
 	# Removing it from system.
 	os.remove(filename)
 
+	
+	
 	# Adding remove descriptions and commiting it.
 	os.system('git add .')
 	os.system(f'git commit -m "{removerstring}" ')
