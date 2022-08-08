@@ -28,7 +28,7 @@ def worker(filename: str, filecontent: str, adderstring: str, removerstring: str
     # Adding remove descriptions and commiting it.
     os.system('git add .')
     os.system(f'git commit -m "{removerstring}" ')
-    os.system(f"git commit --amend --no-edit --date '{dates.get('dateName')} {dates.get('month')} {dates.get('date')} {time} {dates.get('year')} +0600' ")
+    os.system(f"git commit --amend --no-edit --date \'{dates.get('dateName')} {dates.get('month')} {dates.get('date')} {time} {dates.get('year')} +0600\' ")
     print(f"{dates.get('dateName')} {dates.get('month')} {dates.get('date')} {time} {dates.get('year')} +0600")
 
 
