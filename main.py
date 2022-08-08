@@ -11,7 +11,7 @@ import string
 # strftime('%a %b %e %H:%M:%S %Y %z')
 
 
-def worker(filename: str, filecontent: str, adderstring: str, removerstring: str):
+def worker(filename: str, filecontent: str, adderstring: str, removerstring: str, dates: dict):
     # Opening files, writting contents and save it.
     with open(filename, 'a') as docs:
         docs.write(filecontent)
@@ -23,7 +23,7 @@ def worker(filename: str, filecontent: str, adderstring: str, removerstring: str
     os.system('git add .')
     os.system(f'git commit -m "{adderstring}" ')
     os.system(
-        f"git commit --amend --no-edit --date \"Tue Aug 2 {time} 2022 +0600\"")
+        f"git commit --amend --no-edit --date \"{dates.get(dateName)} {dates.get(month)} {dates.get(date)} {time} {dates.get(year)} +0600\"")
 
     # Removing it from system.
     os.remove(filename)
@@ -32,7 +32,7 @@ def worker(filename: str, filecontent: str, adderstring: str, removerstring: str
     os.system('git add .')
     os.system(f'git commit -m "{removerstring}" ')
     os.system(
-        f"git commit --amend --no-edit --date \"Tue Aug 2 {time} 2022 +0600\"")
+        f"git commit --amend --no-edit --date \"{dates.get(dateName)} {dates.get(month)} {dates.get(date)} {time} {dates.get(year)} +0600\"")
 
 
 def NameMaker():
@@ -48,20 +48,20 @@ def NameMaker():
 
 if __name__ == '__main__':
     commits = int(input('How many commits you need (1-99999): '))
-    # date = int(input('In which date you need (1-31): '))
-    # dateName = input('In which date you need (Sat-Fri): ')
-    # month = input('In which month you need (Jan-Dec): ')
-    # year = int(input('In which year you need (2022): '))
+    date = int(input('In which date you need (1-31): '))
+    dateName = input('In which date you need (Sat-Fri): ')
+    month = input('In which month you need (Jan-Dec): ')
+    year = int(input('In which year you need (2022): '))
 
     # commits  = int(input('How many commits you need per day (1-99999): '))
     # year 	 = int(input('In which year you need (2022): '))
 
-    # dates = {
-    #	 'date': date,
-    #	 'dateName': dateName,
-    #	 'month': month,
-    #	 'year': year
-    # }
+    dates = {
+        'date': date,
+        'dateName': dateName,
+        'month': month,
+        'year': year
+    }
 
     try:
         for i in range(commits):
@@ -87,7 +87,7 @@ if __name__ == '__main__':
                 filecontent=f'# {names.get("description")}',
                 adderstring=f'Added {names.get("name")} file.',
                 removerstring=f'Removed {names.get("name")} file.',
-                # dates=dates
+                dates=dates
             )
             print(f'Done {i}')
 
